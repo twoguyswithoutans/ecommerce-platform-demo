@@ -1,0 +1,45 @@
+{
+  "Nav": {
+    "home": "Home",
+    "products": "Products"
+  },
+  "Home": {
+    "featured": "Featured Products",
+    "viewDetails": "View Details"
+  },
+  "Product": {
+    "addToCart": "Add to Cart",
+    "addedSuccess": "Added to cart!",
+    "category": "Category",
+    "results": "results"
+  },
+  "Filters": {
+    "categories": "Categories",
+    "allProducts": "All Products",
+    "priceRange": "Price Range",
+    "applyFilter": "Apply Filter",
+    "sortBy": "Sort By",
+    "lowToHigh": "Price: Low to High",
+    "highToLow": "Price: High to Low"
+  },
+  "Cart": {
+    "title": "Shopping Cart",
+    "emptyTitle": "Your cart is empty",
+    "emptyDesc": "Looks like you haven't added anything to your cart yet.",
+    "startShopping": "Start Shopping",
+    "summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total",
+    "checkout": "Checkout"
+  },
+  "Footer": {
+    "slogan": "The best e-commerce experience powered by Next.js and Tailwind CSS.",
+    "quickLinks": "Quick Links",
+    "about": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved."
+  }
+}

@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Next.js E-Commerce Platform
 
-## Getting Started
+A high-performance, multi-language E-Commerce application built with **Next.js 14 (App Router)**, **TypeScript**, and **Tailwind CSS**. This project fetches data from the [Fake Store API](https://fakestoreapi.com/) and features a fully functional cart, product filtering, and internationalization.
 
-First, run the development server:
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Next.js](https://img.shields.io/badge/Next.js-14.0-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3%2Fv4-cyan)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Core Functionality
+- **Product Listing:** Grid view with server-side rendering and ISR.
+- [cite_start]**Advanced Filtering:** Filter by Category and **Price Range (Min/Max)**[cite: 24].
+- [cite_start]**Sorting:** Sort products by Price (Low to High / High to Low)[cite: 25].
+- [cite_start]**Product Details:** Dedicated SEO-friendly pages with dynamic metadata[cite: 36].
+- [cite_start]**Shopping Cart:** - Global state management with **Redux Toolkit**[cite: 17].
+  - Persists data to `localStorage` (Cart doesn't empty on reload).
+  - [cite_start]Add, remove, and update quantities[cite: 31].
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Technical Highlights
+- [cite_start]**Internationalization (i18n):** Full support for **Turkish (TR)** and **English (EN)** using `next-intl`[cite: 33].
+- [cite_start]**Performance:** - **ISR (Incremental Static Regeneration)** for optimal data fetching.
+  - [cite_start]`next/image` optimization with LCP priority for hero images[cite: 38].
+  - [cite_start]Achieves **90+ Lighthouse scores** in Performance and SEO[cite: 48].
+- **UI/UX:**
+  - [cite_start]Modern, responsive design with **Tailwind CSS**[cite: 45].
+  - [cite_start]Visual feedback using **Toast notifications** (instead of standard alerts)[cite: 46].
+  - Sticky Header and Summary box.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **State Management:** Redux Toolkit (RTK)
+- **Internationalization:** next-intl
+- **Icons:** Lucide React
+- **Notifications:** React Hot Toast

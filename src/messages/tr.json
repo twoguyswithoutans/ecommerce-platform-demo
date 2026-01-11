@@ -1,0 +1,45 @@
+{
+  "Nav": {
+    "home": "Anasayfa",
+    "products": "Ürünler"
+  },
+  "Home": {
+    "featured": "Öne Çıkan Ürünler",
+    "viewDetails": "İncele"
+  },
+  "Product": {
+    "addToCart": "Sepete Ekle",
+    "addedSuccess": "Sepete eklendi!",
+    "category": "Kategori",
+    "results": "sonuç"
+  },
+  "Filters": {
+    "categories": "Kategoriler",
+    "allProducts": "Tüm Ürünler",
+    "priceRange": "Fiyat Aralığı",
+    "applyFilter": "Filtre Uygula",
+    "sortBy": "Sıralama",
+    "lowToHigh": "Fiyat: Artan",
+    "highToLow": "Fiyat: Azalan"
+  },
+  "Cart": {
+    "title": "Alışveriş Sepeti",
+    "emptyTitle": "Sepetiniz boş",
+    "emptyDesc": "Henüz sepetinize bir ürün eklemediniz.",
+    "startShopping": "Alışverişe Başla",
+    "summary": "Sipariş Özeti",
+    "subtotal": "Ara Toplam",
+    "shipping": "Kargo",
+    "free": "Ücretsiz",
+    "total": "Toplam",
+    "checkout": "Ödeme Yap"
+  },
+  "Footer": {
+    "slogan": "Next.js ve Tailwind CSS ile güçlendirilmiş en iyi e-ticaret deneyimi.",
+    "quickLinks": "Hızlı Linkler",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "privacy": "Gizlilik Politikası",
+    "rights": "Tüm hakları saklıdır."
+  }
+}
