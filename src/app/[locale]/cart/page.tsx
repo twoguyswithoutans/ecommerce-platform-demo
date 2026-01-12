@@ -27,7 +27,7 @@ export default function CartPage({ params }: Props) {
 				</div>
 				<h2 className="text-2xl font-bold text-gray-900 mb-2">{t('emptyTitle')}</h2>
 				<p className="text-gray-500 mb-8 max-w-sm">{t('emptyDesc')}</p>
-				<Link href={`/${locale}/products`} className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">
+				<Link aria-label="start shopping" href={`/${locale}/products`} className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">
 					{t('startShopping')}
 				</Link>
 			</div>
@@ -53,14 +53,16 @@ export default function CartPage({ params }: Props) {
 							</div>
 
 							<div className="flex items-center gap-4 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">
-								<button 
+								<button
+									aria-label="Decrease quantity"
 									onClick={() => dispatch(updateQuantity({ id: item.id, quantity: Math.max(1, item.quantity - 1) }))}
 									className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm cursor-pointer text-gray-600 hover:text-blue-600"
 								>
 									<Minus size={14} />
 								</button>
 								<span className="w-4 text-center font-bold text-gray-900">{item.quantity}</span>
-								<button 
+								<button
+									aria-label="Increase quantity"
 									onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))}
 									className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm cursor-pointer text-gray-600 hover:text-blue-600"
 								>
@@ -68,7 +70,8 @@ export default function CartPage({ params }: Props) {
 								</button>
 							</div>
 
-							<button 
+							<button
+								aria-label="Remove item"
 								onClick={() => dispatch(removeFromCart(item.id))}
 								className="p-3 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition cursor-pointer"
 							>
@@ -101,7 +104,7 @@ export default function CartPage({ params }: Props) {
 							</div>
 						</div>
 
-						<button className="w-full bg-black text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
+						<button aria-label="checkout" className="w-full bg-black text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
 							{t('checkout')} <ArrowRight size={20} />
 						</button>
 					</div>

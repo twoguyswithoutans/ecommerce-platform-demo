@@ -1,13 +1,16 @@
 'use client';
+
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Menu, X } from 'lucide-react'; // Added Menu and X icons
 import { useAppSelector } from '@/lib/hooks';
 import { ChangeEvent } from 'react';
 
 export default function Header({ locale }: { locale: string }) {
 	const t = useTranslations('Nav');
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	
 	const router = useRouter();
 	const pathname = usePathname();
@@ -20,16 +23,17 @@ export default function Header({ locale }: { locale: string }) {
 		router.push(newPath);
 	};
 
+  	const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
 	return (
 		<header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
 			<div className="container mx-auto px-4 h-20 flex items-center justify-between">
-				
 				{/* Logo */}
 				<Link href={`/${locale}`} className="text-2xl font-extrabold tracking-tight text-gray-900 flex items-center gap-2">
 					<span className="bg-blue-600 text-white px-2 py-1 rounded-lg">ShopApp</span>
 				</Link>
 
-				{/* Desktop Nav */}
+				{/* Desktop NAV */}
 				<nav className="hidden md:flex items-center gap-8">
 					<Link href={`/${locale}`} className="text-sm font-medium text-gray-600 hover:text-blue-600 transition">
 						{t('home')}
@@ -40,13 +44,12 @@ export default function Header({ locale }: { locale: string }) {
 				</nav>
 
 				{/* Actions */}
-				<div className="flex items-center gap-4">
+				<div className="flex items-center gap-2 md:gap-4">
 					<div className="relative group">
-
-						<select 
+						<select
+							aria-label="Select Language"
 							value={locale} 
 							onChange={handleLanguageChange}
-							aria-label="language select"
 							className="appearance-none bg-gray-50 border border-gray-200 text-gray-700 text-xs font-bold py-2 px-3 rounded-full focus:outline-none cursor-pointer hover:bg-gray-100"
 						>
 							<option value="en">🇺🇸 EN</option>
@@ -54,7 +57,7 @@ export default function Header({ locale }: { locale: string }) {
 						</select>
 					</div>
 
-					<Link aria-label="Cart" href={`/${locale}/cart`} className="relative group p-2">
+					<Link aria-label="Cart" href={`/${locale}/cart`} className="relative group p-2 cursor-pointer">
 						<ShoppingCart className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition" />
 						{totalItems > 0 && (
 							<span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-sm ring-2 ring-white">
@@ -62,8 +65,39 @@ export default function Header({ locale }: { locale: string }) {
 							</span>
 						)}
 					</Link>
+
+					{/* Mobile Hamburger Button */}
+					<button 
+						onClick={toggleMenu}
+						className="md:hidden p-2 text-gray-600 hover:text-blue-600 transition cursor-pointer"
+						aria-label="Toggle Menu"
+					>
+						{isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+					</button>
 				</div>
 			</div>
+
+			{/* Mobile NAV Dropdown */}
+			{isMenuOpen && (
+			<div className="md:hidden bg-white border-b border-gray-100 absolute w-full left-0 animate-in slide-in-from-top duration-300">
+				<nav className="flex flex-col p-4 space-y-4">
+					<Link
+						href={`/${locale}`} 
+						onClick={() => setIsMenuOpen(false)}
+						className="text-base font-medium text-gray-600 hover:text-blue-600 px-2 py-1"
+					>
+						{t('home')}
+					</Link>
+					<Link 
+						href={`/${locale}/products`} 
+						onClick={() => setIsMenuOpen(false)}
+						className="text-base font-medium text-gray-600 hover:text-blue-600 px-2 py-1"
+					>
+						{t('products')}
+					</Link>
+				</nav>
+			</div>
+			)}
 		</header>
 	);
 }
