@@ -7,7 +7,7 @@ export default async function ProductsPage({
 	searchParams,
 }: {
 	params: Promise<{ locale: string }>;
-	searchParams: Promise<{ category?: string; sort?: string }>;
+	searchParams: Promise<{ category?: string; sort?: string; min?: string; max?: string }>;
 }) {
 	const { locale } = await params;
 	const { category, sort, min, max } = await searchParams;

@@ -11,21 +11,21 @@ A high-performance, multi-language E-Commerce application built with **Next.js 1
 
 ### Core Functionality
 - **Product Listing:** Grid view with server-side rendering and ISR.
-- [cite_start]**Advanced Filtering:** Filter by Category and **Price Range (Min/Max)**[cite: 24].
-- [cite_start]**Sorting:** Sort products by Price (Low to High / High to Low)[cite: 25].
-- [cite_start]**Product Details:** Dedicated SEO-friendly pages with dynamic metadata[cite: 36].
-- [cite_start]**Shopping Cart:** - Global state management with **Redux Toolkit**[cite: 17].
+- **Advanced Filtering:** Filter by Category and **Price Range (Min/Max)**.
+- **Sorting:** Sort products by Price (Low to High / High to Low).
+- **Product Details:** Dedicated SEO-friendly pages with dynamic metadata.
+- **Shopping Cart:** - Global state management with **Redux Toolkit**.
   - Persists data to `localStorage` (Cart doesn't empty on reload).
-  - [cite_start]Add, remove, and update quantities[cite: 31].
+  - Add, remove, and update quantities.
 
 ### Technical Highlights
-- [cite_start]**Internationalization (i18n):** Full support for **Turkish (TR)** and **English (EN)** using `next-intl`[cite: 33].
-- [cite_start]**Performance:** - **ISR (Incremental Static Regeneration)** for optimal data fetching.
-  - [cite_start]`next/image` optimization with LCP priority for hero images[cite: 38].
-  - [cite_start]Achieves **90+ Lighthouse scores** in Performance and SEO[cite: 48].
+- **Internationalization (i18n):** Full support for **Turkish (TR)** and **English (EN)** using `next-intl`[cite: 33].
+- **Performance:** - **ISR (Incremental Static Regeneration)** for optimal data fetching.
+  - `next/image` optimization with LCP priority for hero images.
+  - Achieves **90+ Lighthouse scores** in Performance and SEO.
 - **UI/UX:**
-  - [cite_start]Modern, responsive design with **Tailwind CSS**[cite: 45].
-  - [cite_start]Visual feedback using **Toast notifications** (instead of standard alerts)[cite: 46].
+  - Modern, responsive design with **Tailwind CSS**.
+  - Visual feedback using **Toast notifications** (instead of standard alerts).
   - Sticky Header and Summary box.
 
 ## 🛠️ Tech Stack
