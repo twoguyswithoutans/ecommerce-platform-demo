@@ -6,11 +6,8 @@ type Props = {
 	params: Promise<{ id: string; locale: string }>;
 };
 
-// 1. Fix generateMetadata
 export async function generateMetadata({ params }: Props) {
-	// Await params before accessing id
 	const { id } = await params;
-	
 	const product = await getProduct(id);
 	
 	return {
@@ -19,23 +16,20 @@ export async function generateMetadata({ params }: Props) {
 	};
 }
 
-// 2. Fix the Page Component
 export default async function ProductDetail({ params }: Props) {
-	// Await params before accessing id
 	const { id } = await params;
-
 	const product = await getProduct(id);
 
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
 			<div className="relative h-96 w-full bg-white rounded-lg shadow-sm p-4">
 				<Image 
-					 src={product.image} 
-					 alt={product.title} 
-					 fill 
-					 className="object-contain" 
-					 sizes="(max-width: 768px) 100vw, 50vw"
-					 priority // Prioritize loading the main product image (LCP)
+					src={product.image} 
+					alt={product.title} 
+					fill 
+					className="object-contain" 
+					sizes="(max-width: 768px) 100vw, 50vw"
+					priority
 				/>
 			</div>
 			<div className="flex flex-col justify-center">
@@ -49,7 +43,6 @@ export default async function ProductDetail({ params }: Props) {
 					<span className="text-4xl text-green-600 font-bold">${product.price}</span>
 				</div>
 
-				{/* Client Component for Redux interaction */}
 				<div className="w-full md:w-auto">
 					<AddToCartButton product={product} />
 				</div>

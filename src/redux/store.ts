@@ -2,9 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './cartSlice';
 
 export const makeStore = () => {
-  return configureStore({
-    reducer: { cart: cartReducer },
-  });
+	return configureStore({
+		reducer: { cart: cartReducer },
+	});
 };
 
 export type AppStore = ReturnType<typeof makeStore>;

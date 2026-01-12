@@ -1,5 +1,4 @@
 'use client';
-
 import { use } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -56,14 +55,14 @@ export default function CartPage({ params }: Props) {
 							<div className="flex items-center gap-4 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">
 								<button 
 									onClick={() => dispatch(updateQuantity({ id: item.id, quantity: Math.max(1, item.quantity - 1) }))}
-									className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-gray-600 hover:text-blue-600"
+									className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm cursor-pointer text-gray-600 hover:text-blue-600"
 								>
 									<Minus size={14} />
 								</button>
 								<span className="w-4 text-center font-bold text-gray-900">{item.quantity}</span>
 								<button 
 									onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))}
-									className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-gray-600 hover:text-blue-600"
+									className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm cursor-pointer text-gray-600 hover:text-blue-600"
 								>
 									<Plus size={14} />
 								</button>
@@ -71,7 +70,7 @@ export default function CartPage({ params }: Props) {
 
 							<button 
 								onClick={() => dispatch(removeFromCart(item.id))}
-								className="p-3 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition"
+								className="p-3 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition cursor-pointer"
 							>
 								<Trash2 size={20} />
 							</button>
@@ -102,7 +101,7 @@ export default function CartPage({ params }: Props) {
 							</div>
 						</div>
 
-						<button className="w-full bg-black text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+						<button className="w-full bg-black text-white py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
 							{t('checkout')} <ArrowRight size={20} />
 						</button>
 					</div>

@@ -1,11 +1,18 @@
 'use client';
-
 import { useTranslations } from 'next-intl';
 import { addToCart } from '@/redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 
-export default function AddToCartButton({ product }: { product: any }) {
+interface Product {
+	id: number;
+	title: string;
+	price: number;
+	image: string;
+	category: string;
+}
+
+export default function AddToCartButton({ product }: { product: Product }) {
 	const t = useTranslations('Product');
 	const dispatch = useDispatch();
 
@@ -17,8 +24,7 @@ export default function AddToCartButton({ product }: { product: any }) {
 			image: product.image,
 			quantity: 1
 		}));
-		
-		// Success Toast
+
 		toast.success(`${product.title.substring(0, 20)}... ${t('addedSuccess')}`, {
 			style: {
 				border: '1px solid #10B981',
@@ -35,7 +41,7 @@ export default function AddToCartButton({ product }: { product: any }) {
 	return (
 		<button 
 			onClick={handleAdd}
-			className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition active:scale-95"
+			className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition active:scale-95 cursor-pointer"
 		>
 			{t('addToCart')}
 		</button>

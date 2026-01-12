@@ -23,7 +23,7 @@ export default async function Footer() {
 				<div>
 					<h4 className="font-bold mb-4">{t('contact')}</h4>
 					<p className="text-gray-400">Istanbul, Turkey</p>
-					<p className="text-gray-400">codetwocode@gmail.com</p>
+					<a href="mailto:codetwocode@gmail.com" className="text-gray-400">codetwocode@gmail.com</a>
 				</div>
 			</div>
 			<div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">

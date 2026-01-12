@@ -2,10 +2,15 @@ import { getTranslations } from 'next-intl/server';
 import { getProducts, getCategories } from '@/lib/api';
 import ProductCard from '@/components/ProductCard';
 
-export default async function ProductsPage({
-	params,
-	searchParams,
-}: {
+interface Product {
+	id: number;
+	title: string;
+	price: number;
+	image: string;
+	category: string;
+}
+
+export default async function ProductsPage({ params, searchParams }: {
 	params: Promise<{ locale: string }>;
 	searchParams: Promise<{ category?: string; sort?: string; min?: string; max?: string }>;
 }) {
@@ -14,30 +19,30 @@ export default async function ProductsPage({
 
 	let products = await getProducts();
 	const categories = await getCategories();
-	
 	const tFilters = await getTranslations('Filters');
 	const tHome = await getTranslations('Home');
 	const tProd = await getTranslations('Product');
 
 	if (category) {
-		products = products.filter((p: any) => p.category === category);
+		products = products.filter((p: Product) => p.category === category);
 	}
 	if (min) {
-    	products = products.filter((p: any) => p.price >= parseFloat(min));
+		products = products.filter((p: Product) => p.price >= parseFloat(min));
 	}
 	if (max) {
-		products = products.filter((p: any) => p.price <= parseFloat(max));
+		products = products.filter((p: Product) => p.price <= parseFloat(max));
 	}
 	if (sort === 'asc') {
-		products.sort((a: any, b: any) => a.price - b.price);
-	} else if (sort === 'desc') {
-		products.sort((a: any, b: any) => b.price - a.price);
+		products.sort((a: Product, b: Product) => a.price - b.price);
+	}
+	else if (sort === 'desc') {
+		products.sort((a: Product, b: Product) => b.price - a.price);
 	}
 
 	return (
 		<div className="flex flex-col lg:flex-row gap-10 py-8">
 			
-			{/* SIDEBAR FILTER (ASIDE) */}
+			{/* SIDEBAR FILTER */}
 			<aside className="w-full lg:w-64 flex-shrink-0 space-y-8">
 				
 				{/* Categories Section */}
@@ -96,7 +101,7 @@ export default async function ProductsPage({
 						{category && <input type="hidden" name="category" value={category} />}
 						{sort && <input type="hidden" name="sort" value={sort} />}
 
-						<button type="submit" className="w-full bg-blue-600 text-white text-sm font-bold py-2 rounded hover:bg-blue-700 transition">
+						<button type="submit" className="w-full bg-blue-600 text-white text-sm font-bold py-2 rounded hover:bg-blue-700 transition cursor-pointer">
 							{tFilters('applyFilter')}
 						</button>
 					</form>
@@ -138,7 +143,7 @@ export default async function ProductsPage({
 				</div>
 				
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-					{products.map((p: any, index: number) => (
+					{products.map((p: Product, index: number) => (
 						<ProductCard 
 							key={p.id} 
 							product={p} 
