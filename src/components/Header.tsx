@@ -42,9 +42,11 @@ export default function Header({ locale }: { locale: string }) {
 				{/* Actions */}
 				<div className="flex items-center gap-4">
 					<div className="relative group">
-						 <select 
+
+						<select 
 							value={locale} 
 							onChange={handleLanguageChange}
+							aria-label="language select"
 							className="appearance-none bg-gray-50 border border-gray-200 text-gray-700 text-xs font-bold py-2 px-3 rounded-full focus:outline-none cursor-pointer hover:bg-gray-100"
 						>
 							<option value="en">🇺🇸 EN</option>
@@ -52,7 +54,7 @@ export default function Header({ locale }: { locale: string }) {
 						</select>
 					</div>
 
-					<Link href={`/${locale}/cart`} className="relative group p-2">
+					<Link aria-label="Cart" href={`/${locale}/cart`} className="relative group p-2">
 						<ShoppingCart className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition" />
 						{totalItems > 0 && (
 							<span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-sm ring-2 ring-white">
